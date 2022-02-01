@@ -1,0 +1,19 @@
+@import './../../_base.scss';
+
+
+.home {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    background-color: $black-secondary;
+    overflow-y: scroll;
+}
+
+
+@media(max-width: $breakpoint-mobile) {
+    .home {
+        justify-content: center;
+    }
+}

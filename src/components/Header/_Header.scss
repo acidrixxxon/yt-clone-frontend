@@ -1,0 +1,177 @@
+@import './../../_base.scss';
+
+.header {
+    background-color: $black-primary;
+    height: 60px;
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+        .logotype {
+            display: flex;
+            align-items: center;
+
+            .logotype__burger {
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+                margin: 16px 15px 14px 0;
+                cursor: pointer;
+                border-radius: 50%;
+                border: none;
+                background-color: transparent;
+        
+                .logotype__burger-icon {
+                    pointer-events: none; 
+                    display: block;
+                    fill: #fff;
+                }
+            }
+
+            .logotype__link {
+                width: 90px;
+                height: 56px;
+                display: block;
+
+
+                .logotype__icon {
+                    width: 100%;
+                    height: 100%;
+                    fill: #fff;
+                }
+            }
+        }
+
+        .search {
+            width: 550px;
+
+
+            .search__form {
+                display: flex;
+                flex: 0.6;
+                align-items: center;
+                border-radius: 3px;
+                background-color: $black-secondary;
+                margin: 0 1rem;
+
+
+                .search__input {
+                    height: 40px;
+                    outline: none;
+                    border: 1.2px solid transparent;
+                    border-radius: 2px 0 0 2px;
+                    padding: 0 1rem;
+                    width: 100%;
+                    color: hsl(0, 0%, 6.7%);
+                    font-size: 16px;
+                    background: transparent;
+                    color: $text-color;
+                }
+
+                .search__button {
+                    width: 64px;
+                    height: 40px;
+                    background: transparent;
+                    border: 1px solid;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .search__icon {
+                        width: 24px;
+                        height: 24px;
+                        display: block;
+                        fill: $text-color
+                    }
+                }
+            }
+        }
+
+        .buttons-list {
+            display: flex;
+            align-items: center;
+
+            .buttons-list__search {
+                display: none;
+                width: 40px;
+                height: 40px;
+                padding: 8px;
+                margin: 16px 15px 14px 0;
+                cursor: pointer;
+                border-radius: 50%;
+                border: none;
+                background-color: transparent;
+
+                    svg {
+                        display: block;width: 100%;height: 100%;fill: #fff;
+                    }
+            }
+
+            .buttons-list__signin {
+                border: 1px solid rgb(6, 95, 212);
+                background-color: transparent;
+                border-radius: 3px;
+                padding: 6px 12px;
+                display: flex;
+                align-items: center;
+                color: rgb(6, 95, 212);
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    fill:rgb(6, 95, 212);
+                    margin-right: 10px;
+                }
+            }
+
+            .button-list__user-avatar {
+                width: 30px;
+                height: 30px;
+                display: block;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+
+        .logotype {
+            .logotype__link {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .header {
+
+        .logotype {
+            .logotype__link {
+                display: block;
+            }
+        }
+
+        .search {
+            display: none;
+        }
+
+        .buttons-list {
+
+            .buttons-list__search {
+                display: block;
+            }
+        }
+    }
+}

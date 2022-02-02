@@ -1,0 +1,56 @@
+@import './../../_base.scss';
+
+
+.mobile-nav {
+    display: none;
+    width: 100%;
+    background-color: $black-primary;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    border-top: 2px solid #4e4d4d;
+
+    .mobile-nav__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        color: $text-color;
+
+        &-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: all .5s linear;
+
+            svg {
+                width: 23px;
+                height: auto;
+                fill:$text-color;
+                margin-bottom: 3px;
+            }
+
+            .mobile-nav__list-item--title {
+                font-size: 12px;
+            }
+
+        &:hover,&.active {
+            svg {
+                fill: #fff;
+            }
+
+            span {
+                color: #fff;
+            }
+        }
+        }
+    }
+}
+
+@media(max-width: $breakpoint-mobile) {
+    .mobile-nav {
+        display: block;
+    }
+}

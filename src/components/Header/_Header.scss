@@ -158,6 +158,9 @@
     .header {
 
         .logotype {
+            .logotype__burger {
+                display: none;
+            }
             .logotype__link {
                 display: block;
             }

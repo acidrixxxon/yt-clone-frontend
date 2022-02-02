@@ -59,7 +59,7 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
       </Link>
 
 
-      {user &&(<>
+      {user.user &&(<>
       <hr />
 
       <Link onClick={() => dispatch(logout())} to="" className="navbar__link">

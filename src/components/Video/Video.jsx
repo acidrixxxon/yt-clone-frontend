@@ -1,30 +1,53 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './_video.scss';
 import { AiFillEye } from 'react-icons/ai'
+import { viewsFormatter } from '../../utils';
+import { getPopularVideos } from '../../redux/actions/videoActions';
+import { Link } from 'react-router-dom'
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
 
 const Video = ({ video }) => {
+    const dispatch = useDispatch()
+    const {id,snippet: {title,channelTitle,channelId,publishedAt,thumbnails: {high}},contentDetails: {duration},statistics: {viewCount}} = video
+    const [ channelAvatar,setChannelAvatar ] = React.useState(null)
+    
+    React.useEffect( () => {
+        const getChannelDetails = async () => {
+            try {
+                const { data } = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&id=${channelId}&key=AIzaSyCi_vJ4gDMaKikfo0Q6iFRFEUOQQq0sKd4`)
+                setChannelAvatar(data.items[0].snippet.thumbnails.high.url)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+         getChannelDetails()
+    },[channelAvatar,channelId,dispatch])
   return (
     <div className='video'>
-        <div className="video__image">
-            <img src={video.snippet.thumbnails.high.url} alt="" />
-            <span className="video__duration">5:33</span>
-        </div>
+        <Link to={`/video/${id}`} className='video__link'>
+            <div className="video__image">
+                <img src={high.url} alt="" />
+                <span className="video__duration">5:33</span>
+            </div>
 
-        <div className="video__title">
-           {video.snippet.title}
-        </div>
+            <div className="video__title">
+            {title}
+            </div>
 
-        <div className="video__details">
-            <span>
-                <AiFillEye /> 5M views •
-            </span>
-            <span>5 days ago</span>
-        </div>
+            <div className="video__details">
+                <span>
+                    <AiFillEye /> {viewsFormatter(viewCount)} views •
+                </span>
+                <span>5 days ago</span>
+            </div>
 
-        <div className="video__channel">
-            <img src="https://yt3.ggpht.com/RQiETnVtRph8EfLcfOXsnBCW5J8eRVc63Nb-0TduhV6YQE6Ri4OuBKsEuO0OibReoX55h1VjUiE=s68-c-k-c0x00ffffff-no-rj" alt="channel-avatar" />
-            <p>{video.snippet.channelTitle}</p>
-        </div>
+            <div className="video__channel">
+                <img src={channelAvatar} alt="channel-avatar" />
+                <p>{channelTitle}</p>
+            </div>  
+        </Link>
     </div>
   );
 };

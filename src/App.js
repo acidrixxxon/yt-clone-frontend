@@ -5,6 +5,7 @@ import Homepage from './pages/Homepage/Homepage';
 import './App.scss'
 import { Route, Routes } from 'react-router-dom'
 import MobileNav from './components/MobileNav/MobileNav';
+import VideoPage from './pages/VideoPage/VideoPage';
 
 function App() {
   const [ sidebar,setSidebar ] = React.useState(false)
@@ -23,6 +24,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<Homepage />}/>
+            <Route path="/video/:id" element={<VideoPage />} />
           </Routes>
       </div>
     </div>

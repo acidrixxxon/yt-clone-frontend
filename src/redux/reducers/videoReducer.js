@@ -1,5 +1,6 @@
 const initialState = {
     videos: null,
+    videoDetails: null,
     loading: false,
     error: null,
     nextPageToken: null
@@ -8,7 +9,6 @@ const initialState = {
 
 export const videoReducer = (state = initialState,action) => {
     switch(action.type) {
-
         case 'HOME_VIDEOS_REQUEST':
             return {
                 ...state,loading: true
@@ -21,6 +21,26 @@ export const videoReducer = (state = initialState,action) => {
                 nextPageToken: action.payload.nextPageToken
             }
         case 'HOME_VIDEOS_ERROR':
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case 'VIDEO_DETAILS_REQUEST':
+            return {
+                ...state,
+                loading: true
+            }
+        case 'VIDEO_DETAILS_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                videoDetails: {
+                    details: action.payload.details,
+                    channel: action.payload.channel
+                }
+            }
+        case 'VIDEO_DETAILS_ERROR':
             return {
                 ...state,
                 loading: false,

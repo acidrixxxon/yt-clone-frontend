@@ -1,15 +1,17 @@
 import React from 'react';
 import { MdHome,MdSubscriptions,MdLibraryBooks,MdHistory,MdThumbUp, MdExitToApp } from 'react-icons/md'
 import './_sidebar.scss'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux'
 import { logout } from '../../redux/actions/userActions';
 
 const Sidebar = ({ sidebar,handleToggleSidebar }) => {
   const dispatch = useDispatch()
 
+  const location = useLocation()
   const { user } = useSelector(state => state)
 
+  if (location.pathname.split('/')[1] === 'video') return <></>
   return <>
     <nav className={sidebar ? 'navbar open' : 'navbar'} onClick={() => handleToggleSidebar()}>
       <Link to="/" className="navbar__link">

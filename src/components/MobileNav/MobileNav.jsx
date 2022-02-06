@@ -1,6 +1,6 @@
 import React from 'react';
 import './_mobileNav.scss'
-import { MdHome,MdSubscriptions,MdLibraryBooks,MdHistory,MdThumbUp, MdExitToApp } from 'react-icons/md'
+import { MdHome,MdSubscriptions,MdHistory,MdThumbUp } from 'react-icons/md'
 
 const MobileNav = () => {
   return (
@@ -8,19 +8,19 @@ const MobileNav = () => {
         <ul className="mobile-nav__list">
             <li className="mobile-nav__list-item active">
                 <MdHome  className="mobile-nav__list-item--icon"/>
-                <span class="mobile-nav__list-item--title">Главная</span>
+                <span className="mobile-nav__list-item--title">Главная</span>
             </li>
             <li className="mobile-nav__list-item">
                 <MdSubscriptions  className="mobile-nav__list-item--icon"/>
-                <span class="mobile-nav__list-item--title">Подписки</span>
+                <span className="mobile-nav__list-item--title">Подписки</span>
             </li>
             <li className="mobile-nav__list-item">
                 <MdHistory className="mobile-nav__list-item--icon" />
-                <span class="mobile-nav__list-item--title">История</span>
+                <span className="mobile-nav__list-item--title">История</span>
             </li>
             <li className="mobile-nav__list-item">
                 <MdThumbUp className="mobile-nav__list-item--icon"/>
-                <span class="mobile-nav__list-item--title">Библиотека</span>
+                <span className="mobile-nav__list-item--title">Библиотека</span>
             </li>
         </ul>
     </div>

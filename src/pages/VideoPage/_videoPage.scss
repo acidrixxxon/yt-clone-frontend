@@ -4,15 +4,100 @@
     background-color: $black-secondary;
     width: 100%;
     height: 100%;
-    padding: 20px;
     color: #fff;
     display: flex;
     flex-direction: column;
 
-    iframe {
+    .videoPage__player {
         border: none;
-        width: 100%;
-        height: 100%;
+        width: 100% !important;
+        min-height: 75vh !important;
         flex-basis: 70%;
+        margin-bottom: 15px;
+    }
+
+    .videoPage__content {
+        padding: 20px;
+        display: flex;
+
+        .videoPage__details {
+            flex-basis: 75%;
+
+            .videoPage__video-title {
+                margin-bottom: 10px;
+            }
+
+            .videoPage__top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+                color: $text-color;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+
+                .videoPage__left {
+                    .dot {
+                        margin: 0 5px;
+                    }
+                }
+
+                .videoPage__right {
+                    display: flex;
+                    align-items: center;
+
+                    .likes,.dislikes {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        opacity: .5;
+                        transition: all .5 ease-in-out;
+
+                        svg {
+                            margin-right: 5px;
+                        }
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+
+                    .dislikes {
+                        margin-left: 20px;
+                    }
+                }
+            }
+
+            .videoPage__channel {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .videoPage__left {
+                    display: flex;
+                    align-items: center;
+
+                    .videoPage__channel-avatar {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin-right: .5rem;
+                    }
+
+                    .videoPage__channel-data {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+
+                .videoPage__right {
+
+                }
+            }
+        }
+
+        .videoPage__recommendations {
+            flex-basis: 350px;
+        }
     }
 }

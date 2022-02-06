@@ -3,7 +3,10 @@
 
 .app__container {
   display: flex;
-  height: 90vh;
+}
+
+.wrapper {
+  background-color: #16181b;
 }
 
 @import './components/Header/Header'

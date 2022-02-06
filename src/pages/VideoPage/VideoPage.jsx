@@ -24,8 +24,10 @@ const VideoPage = () => {
 
   return (
         <div className='videoPage'>
-            {/* <iframe src={`http://www.youtube.com/embed/${params.id}`}  title="video-title"/> */}
-            <ReactPlayer className="videoPage__player" url={`http://www.youtube.com/embed/${params.id}`} />
+            <ReactPlayer 
+                className="videoPage__player" 
+                url={`http://www.youtube.com/embed/${params.id}`} 
+                controls={true}/>
 
             <div className="videoPage__content">
                 <div className="videoPage__details">
@@ -33,7 +35,7 @@ const VideoPage = () => {
 
                     <div className="videoPage__top">
                         <div className="videoPage__left">
-                            <span className='views'>{numeral(234233).format('0.a')} просмотров</span>
+                            <span className='views'>{numeral(videoDetails?.details.statistics.viewCount).format('0.a')} просмотров</span>
                             <span className="dot">•</span>
                             <span className='date'>{moment('2012-06-6').fromNow()}</span>
                         </div>
@@ -41,7 +43,7 @@ const VideoPage = () => {
                         <div className="videoPage__right">
                             <span className="likes">
                                 <MdThumbUp />
-                                {numeral(9456).format('0.a')}
+                                {numeral(videoDetails?.details.statistics.likeCount).format('0.a')}
                             </span>
                             <span className="dislikes">
                                 <MdThumbDown />
@@ -55,14 +57,20 @@ const VideoPage = () => {
                             <img src={videoDetails?.channel.snippet.thumbnails.default.url} alt="channel-avatar" className="videoPage__channel-avatar"/>
                             
                             <div className="videoPage__channel-data">
-                                <span className="videoPage__channel-name">Channel title</span>
-                                <span className="videoPage__channel-subs">{numeral(214423).format('0.a')} подписчиков</span>
+                                <span className="videoPage__channel-name">{videoDetails?.channel.snippet.title}</span>
+                                <span className="videoPage__channel-subs">{numeral(234233).format('0.a')} подписчиков</span>
                             </div>
                         </div>
 
                         <div className="videoPage__right">
-    df
+                            <button className="videoPage__btn subscribe">Подписаться</button>
                         </div>
+                    </div>
+
+                    <div className="videoPage__video-description">
+                        <p>
+                            {videoDetails?.details.snippet.description}
+                        </p>
                     </div>
                 </div>
 

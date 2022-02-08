@@ -7,13 +7,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchVideoDetails } from '../../redux/actions/videoActions';
 import { MdThumbUp,MdThumbDown } from 'react-icons/md'
 import ReactPlayer from 'react-player'
+import Comments from '../../components/Video/Comments/Comments';
 
 const VideoPage = () => {
     const params = useParams()
     const dispatch = useDispatch()
     const { video } = useSelector(state => state)
     const { videoDetails,loading,error } = video
-    
+    const [ showDescription,setShowDescription ] = React.useState(false)
+
 
     React.useEffect(() => {
         dispatch(fetchVideoDetails(params.id))
@@ -22,6 +24,10 @@ const VideoPage = () => {
     if (loading === true) return (<span>Loading...</span>)
     if (error) return (<span>{error}</span>)
 
+    const showDescriptionHandler = () => {
+        setShowDescription(!showDescription)
+        console.log(showDescription);
+    }
   return (
         <div className='videoPage'>
             <ReactPlayer 
@@ -68,10 +74,13 @@ const VideoPage = () => {
                     </div>
 
                     <div className="videoPage__video-description">
-                        <p>
+                        <p className={showDescription ? 'show' : ''}>
                             {videoDetails?.details.snippet.description}
                         </p>
+                        {showDescription ? (<button onClick={showDescriptionHandler} className='btn btn__hide-more'>Свернуть</button>) : (<button onClick={showDescriptionHandler} className='btn btn__show-more'>Еще</button>)}
                     </div>
+
+                    <Comments />
                 </div>
 
                 <div className="videoPage__recommendations">

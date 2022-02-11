@@ -1,0 +1,46 @@
+
+@import './../../base';
+
+.recommendations__list {
+
+    .recommendations__list-item {
+        display: flex;
+        cursor: pointer;
+        margin-bottom: 15px;
+
+        .recommendation__image {
+            width: 205px;
+            height: 105px;
+            margin-right: 10px;
+        }
+
+        .recommendation__data {
+
+            .recommendation__title {
+                font-size: 15px;
+                font-weight: 600;
+                font-family: "Roboto","Arial",sans-serif;
+                margin-bottom: 5px;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+
+            .recommendation__channel-title {
+                font-size: 14px;
+                color: $text-color;
+                margin-bottom: 3px;
+            }
+
+            .recommendation__metadata {
+                font-size: 14px;
+                color: $text-color;
+
+                .divider {
+                    margin: 0 5px;
+                }
+            }
+        }
+    }
+}

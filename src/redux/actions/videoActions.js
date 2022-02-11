@@ -26,7 +26,7 @@ export const fetchVideoDetails = (id) => async(dispatch) => {
 
         const { data } = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=contentDetails%2Cplayer%2Csnippet%2Cstatistics&id=${id}&key=AIzaSyCi_vJ4gDMaKikfo0Q6iFRFEUOQQq0sKd4`)
         const res = await axios.get(`https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails&id=${data.items[0].snippet.channelId}&key=AIzaSyCi_vJ4gDMaKikfo0Q6iFRFEUOQQq0sKd4`)
-        console.log(res.data.items[0]);
+
         
         dispatch({
             type: 'VIDEO_DETAILS_SUCCESS',

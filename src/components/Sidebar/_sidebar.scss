@@ -5,56 +5,82 @@ nav {
     background: $black-primary;
 
     height: 100vh;
-    width: 290px;
+    z-index: 9999;
+    width: 240px;
 
     display: flex;
     flex-direction: column;
 
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 7vh;
     left: 0;
+
+    transform: translateX(-100%);
 
     transition: transform 0.2s ease-in;
 
-    padding-top: 1rem;
+    padding-top: 2rem;
 
     .navbar__link {
         color: #fff;
         text-decoration: none;
 
-        &:nth-child(5) {
-            margin-bottom: 25px;
-        }
-
         .navbar__item {
             display: flex;
             align-items: center;
             padding: 0.6rem 1.5rem;
-            margin: 0.2rem 0;
+            transition: all .1s ease-in-out;
 
             span {
                 font-size: 16px;
                 font-weight: 500;
                 letter-spacing: .4px;
-                margin-left: 1rem;
+                margin-left: 1.3rem;
             }
-
             &:hover {
                 background-color: $border-color;
             }
 
         }
+        .active {
+            font-weight: 600;
+            background-color: $border-color;
+        }
     }
 
     hr {
-        border: 1.2px solid $border-color;
+        border: .5px solid $border-color;
+        margin: 15px 0;
     }
 
     &.open {
         transform: translateX(0);
-        position: fixed;
+    }
 
-        z-index: 9999;
+    p {
+        color: $text-color;
+        padding: 0.6rem 1.5rem;
+
+        button {
+            border: 1px solid rgb(6, 95, 212);
+                background-color: transparent;
+                border-radius: 3px;
+                padding: 6px 12px;
+                display: flex;
+                align-items: center;
+                color: rgb(6, 95, 212);
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                margin-top: 20px;
+
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    fill:rgb(6, 95, 212);
+                    margin-right: 10px;
+                }
+        }
     }
 }
 

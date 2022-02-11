@@ -3,7 +3,8 @@ import Video from './../../components/Video/Video'
 import './_homepage.scss'
 import { useDispatch,useSelector } from 'react-redux'
 import { getPopularVideos } from '../../redux/actions/videoActions';
-import { Spinner } from 'react-bootstrap'
+import HomePageSkeleton from '../../components/Skeletons/HomePageSkeleton';
+
 
 const Homepage = () => {
   const dispatch = useDispatch()
@@ -16,11 +17,7 @@ const Homepage = () => {
   },[dispatch])
   return (
     <div className='home'>
-      {loading && 
-        (<Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        )}
+      {loading && <span>loading...</span>} 
       {videos?.map((video,index) => (
         <Video video={video} key={video.id} />
       ))}

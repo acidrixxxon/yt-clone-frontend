@@ -8,6 +8,7 @@ import { fetchVideoDetails } from '../../redux/actions/videoActions';
 import { MdThumbUp,MdThumbDown } from 'react-icons/md'
 import ReactPlayer from 'react-player'
 import Comments from '../../components/Video/Comments/Comments';
+import VerticalRecs from '../../components/Recommendations/VerticalRecs';
 
 const VideoPage = () => {
     const params = useParams()
@@ -84,7 +85,7 @@ const VideoPage = () => {
                 </div>
 
                 <div className="videoPage__recommendations">
-                    dfgdf
+                    <VerticalRecs />
                 </div>
             </div>
         </div>

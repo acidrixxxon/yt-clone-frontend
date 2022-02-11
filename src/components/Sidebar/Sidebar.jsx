@@ -1,5 +1,7 @@
 import React from 'react';
 import { MdHome,MdSubscriptions,MdLibraryBooks,MdHistory,MdThumbUp, MdExitToApp } from 'react-icons/md'
+import { IoNavigateCircleOutline } from 'react-icons/io5'
+import { BiTimeFive } from 'react-icons/bi'
 import './_sidebar.scss'
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux'
@@ -15,11 +17,20 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
   return <>
     <nav className={sidebar ? 'navbar open' : 'navbar'} onClick={() => handleToggleSidebar()}>
       <Link to="/" className="navbar__link">
-        <li className='navbar__item'>
+        <li className='navbar__item active'>
           <MdHome 
             className='navbar__item-icon'
             size={23} />
               <span>Главная</span>
+        </li>
+      </Link>
+
+      <Link to='/feed/navigation' className="navbar__link">
+        <li className='navbar__item'>
+            <IoNavigateCircleOutline
+              className='navbar__item-icon'
+              size={23} />
+                <span>Навигатор</span>
         </li>
       </Link>
 
@@ -31,6 +42,8 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
                 <span>Подписки</span>
         </li>
       </Link>
+
+      <hr />
 
       <Link to="/liked" className="navbar__link">
          <li className='navbar__item'>
@@ -47,9 +60,19 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
           <MdHistory 
             className='navbar__item-icon'
             size={22} />
-              <span>История просмотров</span>
+              <span>История</span>
          </li>
       </Link>
+
+      <Link to="/history" className="navbar__link">
+        <li className='navbar__item'>
+          <BiTimeFive
+            className='navbar__item-icon'
+            size={22} />
+              <span>Смотреть позже</span>
+         </li>
+      </Link>
+
 
       <Link to="/library" className="navbar__link">
         <li className='navbar__item'> 
@@ -58,8 +81,15 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
             size={21} />
               <span>Библиотека</span>
          </li>
-      </Link>
+      </Link> 
 
+      {user.user === null && (
+        (<><hr />
+          <p>Вы сможете ставить отметки "Нравится", писать комментарии и подписываться на каналы.
+          <button>Войти</button>
+        </p></>
+        )
+      )}
 
       {user.user &&(<>
       <hr />

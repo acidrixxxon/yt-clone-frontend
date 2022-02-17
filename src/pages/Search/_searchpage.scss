@@ -5,104 +5,6 @@
     padding: 20px 30px;
     width: 100%;
 
-    .searchpage__filters {
-
-        .searchpage__filterbtn {
-            color: $text-color;
-            display: flex;
-            align-items: center;
-            text-transform: uppercase;
-            font-size: 14px;
-            cursor: pointer;
-            transition: .2s all linear;
-            position: relative;
-            background-color: transparent;
-            min-width: 150px;
-            margin-bottom: 50px;
-
-            svg {
-                margin-right: 10px;
-                transform: rotate(90deg);
-            }
-
-            .searchpage__filterbtn--alt {
-                background-color: $text-color;
-                color: #fff;
-                font-size: 12px;
-                padding: 10px 10px;
-                border-radius: 3px;
-                text-transform: none;
-                position: absolute;
-                bottom: -50px;
-                opacity: 0;
-                transition: .3s all linear;
-            }
-
-            &:hover {
-                color: #fff;
-
-                .searchpage__filterbtn--alt {
-                    opacity: .7;
-                }
-            }
-
-            &:active {
-                .searchpage__filterbtn--alt {
-                    opacity: 0;
-                }
-            }
-        }
-
-        .searchpage__filters__lists {
-            display: flex;
-            transition: .2s all linear;
-            opacity: 0;
-            max-height: 0;
-            margin-bottom: 20px;
-
-            &.show {
-                opacity: 1;
-                max-height: 300px;
-            }
-
-            .searchpage__filters__lists--list {
-                color: $text-color;
-                flex-basis: 20%;
-                padding-right: 20px;
-
-                .divider {
-                    width: 100%;
-                    height: .1px;
-                    background-color: $text-color;
-                    margin: 20px 0;
-                }
-
-                .searchpage__filters__lists--type {
-                    color: #fff;
-                    text-transform: uppercase;
-                    font-weight: 600;
-                    font-size: 13px;
-                }
-
-                .searchpage__filters__lists--item {
-                    margin-bottom: 10px;
-                    cursor: pointer;
-                    display: flex;
-                    align-items: center;
-
-                    svg {
-                        margin-left: 15px;
-                    }
-
-                    &.active {
-                        color: #fff;
-                        font-weight: 600;
-                    }
-                }
-            }
-        }
-    }
-
     .searchpage__results {
         transition: .2s all linear;
 
@@ -165,6 +67,83 @@
                 .searchpage__results__videos__list__item {
                     display: flex;
                     justify-content: flex-start;
+                    position: relative;
+
+                    &:hover {
+                        .submenu {
+
+                            .submenu__dots {
+                                display: flex;
+                            }
+                        }
+                    }
+
+                    .submenu {
+                        position: absolute;
+                        right: 10px;
+                        top: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+
+                        .submenu__dots {
+                            display: none;
+                            flex-direction: column;
+                            cursor: pointer;
+
+                            &.active {
+                                display: flex;
+                            }
+
+                            .dot {
+                                background-color: #fff;
+                                width: 3px;
+                                height: 3px;
+                                border-radius: 50%;
+                                margin-bottom: 3px;
+                            }
+                        }
+
+                        .submenu__list {
+                            display: flex;
+                            flex-direction: column;
+                           min-width: 220px;
+                           background-color: $black-primary;
+                           position: relative;
+                           right: 0;
+                           opacity: 0;
+
+                           &.active {
+                               opacity: 1;
+                           }
+
+                           .divider {
+                               width: 100%;
+                               height: 1px;
+                               background-color: #303030;
+                               margin: 10px 0;
+                           }
+
+                            .submenu__list--btn {
+                                background-color: $black-primary;
+                                 padding: 10px 15px;
+                                width: 100%;
+                                text-align: left;
+                                display: flex;
+                                align-items: center;
+                                font-weight: 600;
+                                transition: .5s all linear;
+
+                                &:hover {
+                                    background-color: $text-color;
+                                }
+
+                                svg {
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
 
                     .searchpage__results__videos__list__item--image {
                         flex-basis: 350px;

@@ -1,63 +1,28 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import './_searchpage.scss'
-import { GiSettingsKnobs } from 'react-icons/gi'
-import { AiOutlineClose } from 'react-icons/ai'
-import SubscribeBtn from '../../components/common/Buttons/SubscribeBtn'
+import Filters from '../../components/Filters/Filters'
+import SubscribeBtn from './../../components/common/Buttons/SubscribeBtn'
+import { MdPlaylistAdd } from 'react-icons/md'
+import { BiTimeFive } from 'react-icons/bi'
+import { AiFillFlag } from 'react-icons/ai'
 
 const Searchpage = () => {
-    const { query } = useParams()
-    const [ showFilters,setShowFIlter ] = React.useState(false)
+    const [ showSubmenu,setShowSubmenu ] = React.useState(false)
 
-    const toggleFilters = () => {
-        setShowFIlter(!showFilters)
+    const toggleSubmenu = () => {
+        setShowSubmenu(!showSubmenu)
+        console.log('hui')
     }
-
     return (
         <div className='searchpage'>
-
-            <div className="searchpage__filters">
-
-                <button className="searchpage__filterbtn" onClick={toggleFilters}>
-                    <GiSettingsKnobs size={22}/>
-
-                    Фильтры
-
-                    <span className="searchpage__filterbtn--alt">Показать фильтры</span>
-                </button>
-
-                <div className={showFilters ? 'searchpage__filters__lists show' : 'searchpage__filters__lists'}>
-                    <ul className="searchpage__filters__lists--list">
-                        <span className="searchpage__filters__lists--type">По дате загрузки</span>
-
-                        <div className="divider"></div>
-
-                        <li className="searchpage__filters__lists--item active">
-                            За последний час
-                            <AiOutlineClose size={15}/>
-                        </li>
-                        <li className="searchpage__filters__lists--item">
-                            Сегодня
-                        </li>
-                        <li className="searchpage__filters__lists--item">
-                            За эту неделю
-                        </li>
-                        <li className="searchpage__filters__lists--item">
-                            За этот месяц
-                        </li>
-                        <li className="searchpage__filters__lists--item">
-                            За этот год
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <Filters />
 
             <div className="searchpage__results">
                 <div className="searchpage__results__channels">
                     <ul className="searchpage__results__channels__list">
                         <li className="searchpage__results__channels__list__item">
                             <div className="searchpage__results__channels__list__item--image">
-                                <img src="https://yt3.ggpht.com/ytc/AKedOLTlvHOBXyMMQ3krV-XNn_-yjD3v312CKvALsW8xdw=s176-c-k-c0x00ffffff-no-rj-mo" alt="channel-image" />
+                                <img src="https://yt3.ggpht.com/ytc/AKedOLTlvHOBXyMMQ3krV-XNn_-yjD3v312CKvALsW8xdw=s176-c-k-c0x00ffffff-no-rj-mo" alt="channel" />
                             </div>
 
                             <div className="searchpage__results__channels__list__item__metadata">
@@ -90,8 +55,31 @@ const Searchpage = () => {
                 <div className="searchpage__results__videos">
                     <ul className="searchpage__results__videos__list">
                         <li className="searchpage__results__videos__list__item">
+                            <div className="submenu">
+                                <div className={showSubmenu ? 'submenu__dots active' : 'submenu__dots'} onClick={toggleSubmenu}>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                    <span className="dot"></span>
+                                </div>
+
+                                <div className={showSubmenu ? 'submenu__list active' : 'submenu__list'}>
+                                    <button className="submenu__list--btn">
+                                        <MdPlaylistAdd size={20} />
+                                        Добавить в плейлист
+                                    </button>
+                                    <button className="submenu__list--btn">
+                                        <BiTimeFive size={20} />
+                                        Cмотреть позже
+                                    </button>
+                                    <div className="divider"></div>
+                                    <button className="submenu__list--btn">
+                                        <AiFillFlag size={20} />
+                                        Пожаловаться
+                                    </button>
+                                </div>
+                            </div>
                             <div className="searchpage__results__videos__list__item--image">
-                                <img src="https://media.istockphoto.com/photos/businessman-plan-business-growth-and-financial-increase-of-positive-picture-id1361507082?b=1&k=20&m=1361507082&s=170667a&w=0&h=s2reDA9gednXcuvBW4piXkWHz2_ScYB3uObZQsYfhqI=" alt="video-image" />
+                                <img src="https://media.istockphoto.com/photos/businessman-plan-business-growth-and-financial-increase-of-positive-picture-id1361507082?b=1&k=20&m=1361507082&s=170667a&w=0&h=s2reDA9gednXcuvBW4piXkWHz2_ScYB3uObZQsYfhqI=" alt="video" />
                             </div>
 
                             <div className="searchpage__results__videos__list__item__metadata">

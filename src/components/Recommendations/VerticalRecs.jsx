@@ -14,7 +14,6 @@ const VerticalRecs = () => {
         <>
             <ul className='recommendations__list'>
                 {data?.map(item => {
-                    console.log(item)
                     return <RecommendationItem item={item} key={item.id} />
                 })}
             </ul>

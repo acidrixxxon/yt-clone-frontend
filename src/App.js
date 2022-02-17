@@ -6,9 +6,13 @@ import './App.scss'
 import { Route, Routes } from 'react-router-dom'
 import MobileNav from './components/MobileNav/MobileNav';
 import VideoPage from './pages/VideoPage/VideoPage';
+import Historypage from './pages/History/Historypage';
+import Subscriptionspage from './pages/Subscriptions/Subscriptionspage';
+import Librarypage from './pages/Library/Librarypage';
+import Searchpage from './pages/Search/Searchpage';
 
 function App() {
-  const [ sidebar,setSidebar ] = React.useState(false)
+  const [ sidebar,setSidebar ] = React.useState(true)
 
   const handleToggleSidebar = () => {
     setSidebar(value => !value)
@@ -25,6 +29,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />}/>
             <Route path="/video/:id" element={<VideoPage />} />
+            <Route path="/history" element={<Historypage />} />
+            <Route path="/subscriptions" element={<Subscriptionspage />} />
+            <Route path="/library" element={<Librarypage />} />
+            <Route path="/search/q=:query" element={<Searchpage />} />
           </Routes>
       </div>
     </div>

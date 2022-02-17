@@ -1,0 +1,59 @@
+@import './../../../_base.scss';
+
+
+.video__submenu-dots {
+    display: none;
+    width: 4px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-left: 10px;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    z-index: 9999;
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+    }
+
+    &:before {
+      top: 6px;
+    }
+
+    &:after {
+      top: 12px;
+    }
+
+
+  }
+
+.video__submenu {
+    background-color: $black-primary;
+    min-width: 350px;
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 9999;
+    
+        .video__submenu-list {
+            padding: 10px 15px;
+
+            .video__submenu-item {
+                display: flex;
+                align-items: center;
+
+                svg {
+                    margin-right: 10px;
+                }
+            }
+        }
+}

@@ -6,6 +6,7 @@ import { getPopularVideos } from '../../redux/actions/videoActions';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import Submenu from './Submenu/Submenu';
 
 const Video = ({ video }) => {
     const dispatch = useDispatch()
@@ -32,21 +33,24 @@ const Video = ({ video }) => {
                 <span className="video__duration">5:33</span>
             </div>
 
-            <div className="video__title">
-            {title}
-            </div>
+            <div className="video__data">
+                <Submenu />
+                <div className="video__title">
+                    {title}
+                </div>
 
-            <div className="video__details">
-                <span>
-                    <AiFillEye /> {viewsFormatter(viewCount)} views •
-                </span>
-                <span>5 days ago</span>
-            </div>
+                <div className="video__details">
+                    <span>
+                        <AiFillEye /> {viewsFormatter(viewCount)} views •
+                    </span>
+                    <span>5 days ago</span>
+                </div>
 
-            <div className="video__channel">
-                <img src={channelAvatar} alt="channel-avatar" />
-                <p>{channelTitle}</p>
-            </div>  
+                <div className="video__channel">
+                    <img src={channelAvatar} alt="channel-avatar" />
+                    <p>{channelTitle}</p>
+                </div>  
+            </div>
         </Link>
     </div>
   );

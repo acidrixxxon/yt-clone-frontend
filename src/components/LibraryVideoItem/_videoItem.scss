@@ -1,0 +1,50 @@
+@import './../../base';
+
+.video__item {
+    width: 25%;
+    padding: 0 20px 30px 0;
+
+    &:nth-child(4),
+    &:last-child {
+        padding-right: 0px;
+    }
+
+    .video__item--image {
+        width: 211px;
+        height: 120px;
+        margin-bottom: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .video__item--title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        line-height: 20px;
+        font-weight: 600;
+    }
+
+    .video__item--channel__name {
+        color: $text-color;
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    .video__item--metadata {
+        color: $text-color;
+        font-size: 13px;
+        line-height: 18px;
+
+        .divider {
+            margin: 0 5px;
+        }
+
+        .date {
+            display: block;
+        }
+    }
+}

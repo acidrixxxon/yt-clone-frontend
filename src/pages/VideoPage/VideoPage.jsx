@@ -9,6 +9,7 @@ import { MdThumbUp,MdThumbDown } from 'react-icons/md'
 import ReactPlayer from 'react-player'
 import Comments from '../../components/Video/Comments/Comments';
 import VerticalRecs from '../../components/Recommendations/VerticalRecs';
+import SubscribeBtn from '../../components/common/Buttons/SubscribeBtn';
 
 const VideoPage = () => {
     const params = useParams()
@@ -27,7 +28,6 @@ const VideoPage = () => {
 
     const showDescriptionHandler = () => {
         setShowDescription(!showDescription)
-        console.log(showDescription);
     }
   return (
         <div className='videoPage'>
@@ -38,6 +38,7 @@ const VideoPage = () => {
 
             <div className="videoPage__content">
                 <div className="videoPage__details">
+                    
                     <h3 className="videoPage__video-title">{videoDetails?.details.snippet.title}</h3>
 
                     <div className="videoPage__top">
@@ -70,7 +71,7 @@ const VideoPage = () => {
                         </div>
 
                         <div className="videoPage__right">
-                            <button className="videoPage__btn subscribe">Подписаться</button>
+                            <SubscribeBtn />
                         </div>
                     </div>
 

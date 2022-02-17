@@ -1,0 +1,30 @@
+
+
+.card {
+    width: 100%;
+    color: #fff;
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    svg {
+        width: 160px;
+        height: 160px;
+    }
+
+    .card__heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .card__title {
+            margin-bottom: 20px;
+        }
+
+        .card__desc {
+            margin-bottom: 20px;
+        }
+    }
+}

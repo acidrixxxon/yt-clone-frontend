@@ -43,51 +43,6 @@
             }
         }
 
-        .search {
-            width: 550px;
-
-
-            .search__form {
-                display: flex;
-                flex: 0.6;
-                align-items: center;
-                border-radius: 3px;
-                background-color: $black-secondary;
-                margin: 0 1rem;
-
-
-                .search__input {
-                    height: 40px;
-                    outline: none;
-                    border: 1.2px solid transparent;
-                    border-radius: 2px 0 0 2px;
-                    padding: 0 1rem;
-                    width: 100%;
-                    color: hsl(0, 0%, 6.7%);
-                    font-size: 16px;
-                    background: transparent;
-                    color: $text-color;
-                }
-
-                .search__button {
-                    width: 64px;
-                    height: 40px;
-                    background: $black-primary;
-                    border: .5px solid;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    .search__icon {
-                        width: 24px;
-                        height: 24px;
-                        display: block;
-                        fill: $text-color
-                    }
-                }
-            }
-        }
-
         .buttons-list {
             display: flex;
             align-items: center;

@@ -1,7 +1,10 @@
-$black-primary: #252525;
-$black-secondary: #16181b;
+$black-primary: #202020;
+$black-secondary: #181818;
+
+$border-main: 1px solid #303030;
 
 $text-color: #b1bdb4;
+$blue-color: rgb(62, 166, 255);
 
 
 $breakpoint-mobile: 470px;
@@ -29,3 +32,55 @@ button {
     cursor: pointer;
     color: #fff;
 }
+
+.btn {
+    padding: 10px 15px;
+    text-transform: uppercase;
+    border-radius: 5px;
+
+    &.btn--blue {
+        background-color: $blue-color;
+        color: #333;
+        font-weight: 600;
+    }
+}
+
+.divider {
+    width: 100%;
+    background-color: #303030;
+    height: 1px;
+    margin: 15px 0;
+}
+
+.dnone {
+    display: none;
+}
+
+.no-video {
+    color: #fff;
+    font-size: 16px;
+}
+
+
+#root {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+  
+  .app {
+    background-color: #16181b;
+    width: 100%;
+  }
+  
+  .app__container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .btn-disabled {
+      background-color: transparent;
+      border: $border-main;
+      cursor: default;
+      color: $text-color;
+  }

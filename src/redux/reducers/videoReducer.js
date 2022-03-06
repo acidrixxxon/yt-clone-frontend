@@ -35,10 +35,7 @@ export const videoReducer = (state = initialState,action) => {
             return {
                 ...state,
                 loading: false,
-                videoDetails: {
-                    details: action.payload.details,
-                    channel: action.payload.channel
-                }
+                videoDetails: action.payload
             }
         case 'VIDEO_DETAILS_ERROR':
             return {

@@ -5,16 +5,16 @@ nav {
     background: $black-primary;
 
     min-height: 100vh;
-    z-index: 9999;
-    width: 280px;
+    z-index: 999;
+    width: 250px;
 
     display: flex;
     flex-direction: column;
 
     position: fixed;
     left: 0;
+    top: 60px;
 
-    transform: translateX(-100%);
 
     transition: transform 0.2s ease-in;
 
@@ -49,7 +49,7 @@ nav {
     }
 
     hr {
-        border: .5px solid $border-color;
+        border: $border-main;
         margin: 15px 0;
     }
 
@@ -157,6 +157,28 @@ nav {
                 span {
                     display: none;
                 }
+            }
+        }
+
+        p {
+            display: none;
+        }
+
+        .user-subs {
+            display: none;
+        }
+
+        .user-subs__list {
+
+            .user-subs__item {
+
+                .user-subs__item--name {
+                    display: none;
+                }
+            }
+            
+            .user-subs__showMore {
+                display: none;
             }
         }
     }

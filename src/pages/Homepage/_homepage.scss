@@ -2,12 +2,7 @@
 
 
 .home {
-    width: 100%;
-    padding: 20px;
-    margin: 0 auto;
-    height: 92vh;
     background-color: $black-secondary;
-    overflow-y: scroll;
 
     .videos__container {
         display: flex;

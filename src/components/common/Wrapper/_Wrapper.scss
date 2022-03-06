@@ -1,0 +1,14 @@
+@import './../../../_base.scss';
+
+.wrapper {
+    width: calc(100% - 250px);
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+}
+
+@media(max-width: $breakpoint-desktop) {
+    .wrapper {
+        width: calc(100% - 70px);
+    }
+}

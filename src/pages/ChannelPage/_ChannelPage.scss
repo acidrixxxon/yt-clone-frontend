@@ -1,0 +1,61 @@
+.container {
+    width: 100%;
+    max-width: 1070px;
+    margin: 0 auto;
+}
+
+#channel-page {
+    padding: 0;
+
+    .channel-page__bg {
+        width: 100%;
+        height: 200px;
+
+        .channel-page__bg--img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+        .channel-page__header {
+            padding: 20px 0;
+            background-color: #181818;
+            
+            .channel-page__container {
+                
+                .channel-page__metadata {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+    
+                    .channel-page__metadata__left {
+                        display: flex;
+                        align-items: center;
+    
+                        .channel-page__metadata__avatar {
+                            margin-right: 20px;
+    
+                            &--img {
+                                width: 80px;
+                                height: 80px;
+                                border-radius: 50%;
+                            }
+                        }
+    
+                        .channel-page__metadata__username {
+                            color: #fff;
+                        }
+                    }
+    
+                    .channel-page__metadata__right {
+    
+                    }
+                }
+            }
+        }
+
+        .channel-page__body {
+            background-color: #0F0F0F;
+            min-height: 500px;
+        }
+    }

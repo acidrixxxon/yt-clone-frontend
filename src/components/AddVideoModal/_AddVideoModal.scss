@@ -1,0 +1,182 @@
+@import './../../_base.scss';
+
+.addVideo__modal__layout {
+    width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .addVideo__modal__content {
+        width: 950px;
+        min-height: 85vh;
+        background-color: $black-primary;
+        border-radius: 10px;
+        color: $text-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 9999;
+
+        .addVideo__modal__header {
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: $border-main;
+            
+            .addVideo__modal__header--title {
+                color: #fff;
+            }
+
+            .addVideo__modal__header--closeIcon {
+                width: 25px;
+                height: 25px;
+                cursor: pointer;
+                color: $text-color;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        .addVideo__modal__body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .addVideo__modal__body__upload {
+                border-radius: 50%;
+                width: 150px;
+                height: 150px;
+                margin-bottom: 20px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $black-secondary;
+                cursor: pointer;
+
+                .addVideo__modal__body__upload--icon {
+                    color: $text-color;
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            .addVideo__modal__body--btn {
+                background-color: $blue-color;
+                padding: 10px 20px;
+                color: #333;
+                border-radius: 3px;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+        }
+
+        .addVideo__modal__footer {
+            text-align: center;
+            padding-bottom: 25px;
+            font-size: 13px;
+
+            .addVideo__modal__footer--para {
+                &:first-child {
+                    margin-bottom: 5px;
+                }
+                .addVideo__modal__footer--link {
+                    color: rgb(62, 166, 255);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        &.tab2 {
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            .addVideo__modal__header {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .addVideo__modal__body {
+                padding: 20px 25px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+
+                .addVideo__modal__body__left {
+                    flex-basis: 60%;
+                    
+                    .addVideo__modal__body__textarea {
+                        width: 100%;
+                        border: $border-main;
+                        padding: 5px 10px;
+                        
+                        &:first-child {
+                            margin-bottom: 25px;
+                        }
+    
+                        .addVideo__modal__body__textarea--title {
+                            font-size: 17px;
+                            margin-bottom: 10px;
+                        }
+    
+                        .addVideo__modal__body__textarea--area {
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            resize: none;
+                            color: #fff;
+                            width: 100%;
+                        }
+                    }
+                }
+                
+                .addVideo__modal__body__right {
+                    flex-basis: 40%;
+                    margin-left: 20px;
+
+                    &--title {
+                        margin-bottom: 10px;
+                    }
+
+                    &--input {
+                        background-color: transparent;
+                        padding: 10px;
+                        border: $border-main;
+                        width: 100%;
+                        color: $text-color;
+                    }
+                }
+            }
+
+            .addVideo__modal__footer {
+                padding: 20px 25px;
+                margin-top: auto;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+        }
+    }
+}

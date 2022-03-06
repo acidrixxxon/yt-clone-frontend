@@ -1,23 +1,30 @@
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from './../../firebase'
+import UserService from "../../Services/UserService";
 
-export const login = () => async dispatch => {
+export const login = (data) => async dispatch => {
     try {
+        let channelData;
         dispatch({type: 'LOGIN_REQUEST'})
-        const provider = new GoogleAuthProvider()
 
-        const res = await signInWithPopup(auth,provider)
+        const res = await UserService.login(data)
+        if (res.token) {
+             channelData = await UserService.myChannel(res.token)
 
-        dispatch({
-            type: 'LOGIN_SUCCESS',
-            payload: {
-                token: res.user.accessToken,
-                user: res.user.auth.currentUser
+             if (res.success === true && channelData !== null) {
+                dispatch({
+                    type: 'LOGIN_SUCCESS',
+                    payload: {
+                        token: res.token,
+                        user: res.user,
+                        channel: channelData.channel
+                    }
+                })
             }
-        })
+        }
         
-        sessionStorage.setItem('ytc-access-token',res.user.accessToken)
-        sessionStorage.setItem('user', JSON.stringify(res.user.auth.currentUser))
+            
+        
+        sessionStorage.setItem('access_token',res.token)
+        sessionStorage.setItem('user', JSON.stringify(res.user))
     } catch (error) {
         console.log(error);
         dispatch({
@@ -27,7 +34,6 @@ export const login = () => async dispatch => {
     }
 }
 
-
 export const logout = () => async dispatch => {
     try {
         dispatch({
@@ -35,9 +41,34 @@ export const logout = () => async dispatch => {
         })
 
         sessionStorage.removeItem('user')
-        sessionStorage.removeItem('ytc-access-token')
+        sessionStorage.removeItem('access_token')
     } catch (error) {
         console.log(error);
     }
 }
 
+export const getMe = () => async (dispatch,getState) => {
+    try {
+        dispatch({type: 'LOGIN_REQUEST'})
+
+        const { user: { accessToken } } = getState()
+
+        if (accessToken !== null) {
+            const res = await UserService.getMe(accessToken)
+
+            if (res.success === true) {
+                dispatch({
+                    type: 'LOGIN_SUCCESS',
+                    payload: {
+                        token: res.token,
+                        user: res.user,
+                        channel: res.channel
+                    }
+                })
+            }
+        }
+
+    } catch (e) {
+        console.error(e)
+    }
+}

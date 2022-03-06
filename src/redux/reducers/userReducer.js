@@ -1,7 +1,8 @@
 
 const initialState = {
-    accessToken: sessionStorage.getItem('ytc-access-token') ? sessionStorage.getItem('ytc-access-token') : null,
+    accessToken: sessionStorage.getItem('access_token') ? sessionStorage.getItem('access_token') : null,
     user: sessionStorage.getItem('user') ? JSON.parse(sessionStorage.getItem('user')) : null,
+    myChannel: null,
     loading: false,
     error: null
 }
@@ -18,7 +19,8 @@ export const userReducer = (state = initialState,action) => {
                 ...state,
                 loading: false,
                 accessToken: action.payload.token,
-                user: action.payload.user
+                user: action.payload.user,
+                myChannel: action.payload.channel
             }
         case 'LOGIN_ERROR':
             return {

@@ -10,9 +10,8 @@ const HomePageSkeleton = () => {
   return (
       <div className='skeletons'>
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          {[...Array(10)].map(item => (<Skeleton />) )}
+          {[...Array(10)].map((item,index) => (<Skeleton key={index} />) )}
         </SkeletonTheme>
-        
       </div>
   )
 }

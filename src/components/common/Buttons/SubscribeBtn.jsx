@@ -3,7 +3,7 @@ import './_main.scss'
 
 const SubscribeBtn = () => {
   return (
-    <button className="subscribe-btn subscribe">Подписаться</button>
+    <button className="subs-btn subscribe">Подписаться</button>
   )
 }
 

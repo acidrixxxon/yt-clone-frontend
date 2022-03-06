@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { QueryClient,QueryClientProvider, } from 'react-query'
-import { ReactQueryDevtools } from 'react-query/devtools'
 import 'moment/locale/ru'
+import 'numeral/locales/ru'
 
 
 const queryClient = new QueryClient()

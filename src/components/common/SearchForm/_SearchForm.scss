@@ -3,7 +3,7 @@
 
         .search {
             width: 550px;
-
+            border: 1px solid #303030;;
 
             .search__form {
                 display: flex;
@@ -11,7 +11,6 @@
                 align-items: center;
                 border-radius: 3px;
                 background-color: $black-secondary;
-                margin: 0 1rem;
 
 
                 .search__input {
@@ -31,7 +30,6 @@
                     width: 64px;
                     height: 40px;
                     background: $black-primary;
-                    border: .5px solid;
                     display: flex;
                     align-items: center;
                     justify-content: center;

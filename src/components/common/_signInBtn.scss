@@ -1,4 +1,4 @@
-
+@import './../../base';
 
 .signin__btn {
     border: 1px solid rgb(6, 95, 212);
@@ -17,5 +17,15 @@
         height: 24px !important;
         fill:rgb(6, 95, 212);
         margin-right: 10px;
+    }
+}
+
+@media(max-width: $breakpoint-desktop) {
+    .signin__btn {
+        &.hidden {
+            span {
+                display: none;
+            }
+        }
     }
 }

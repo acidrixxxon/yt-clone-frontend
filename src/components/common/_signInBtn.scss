@@ -11,6 +11,20 @@
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
+    width: 95px;
+    margin-left: 20px;
+
+    &.small {
+        margin-left: 0;
+        width: auto;
+        span {
+            display: none;
+        }
+
+        svg {
+            margin: 0 auto;
+        }
+    }
 
     svg {
         width: 24px !important;
@@ -20,12 +34,18 @@
     }
 }
 
-@media(max-width: $breakpoint-desktop) {
+@media(max-width: 1220px) {
     .signin__btn {
+        width: auto !important;
+        margin-left: 0;
         &.hidden {
             span {
                 display: none;
             }
+        }
+
+        svg {
+            margin: 0 auto;
         }
     }
 }

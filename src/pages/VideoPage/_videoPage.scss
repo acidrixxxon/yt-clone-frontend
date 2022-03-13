@@ -45,6 +45,36 @@
                     display: flex;
                     align-items: center;
 
+                    .videoPage_right__addWatchlater {
+                        background-color: transparent;
+                        color: $text-color;
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        margin-right: 20px;
+                        opacity: .5;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                        .videoPage_right__addWatchlater--icon {
+                            margin-right: 5px;
+                        }
+                    }
+                    
+                    .videoPage_right__removeWatchLater {
+                        background-color: transparent;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        margin-right: 20px;
+
+                        .videoPage_right__removeWatchLater--icon {
+                            margin-right: 5px;
+                        }
+                    }
+
                     .likes,.dislikes {
                         display: flex;
                         align-items: center;
@@ -62,7 +92,7 @@
                     }
 
                     .dislikes {
-                        margin-left: 20px;
+                        margin-left: 10px;
                     }
                 }
             }

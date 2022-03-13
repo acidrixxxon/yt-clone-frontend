@@ -1,41 +1,40 @@
 const initialState = {
-    videos: [],
-    videoDetails: null,
+    history: {},
     loading: false,
-    error: null,
+    error: null
 }
 
-
-export const videoReducer = (state = initialState,action) => {
+export const historyReducer = (state = initialState,action) => {
     switch(action.type) {
-        case 'HOME_VIDEOS_REQUEST':
-            return {
-                ...state,loading: true
-            }
-        case 'HOME_VIDEOS_SUCCESS':
+        case 'HISTORY_REQUEST':
             return {
                 ...state,
-                loading:false,
-                videos: action.payload.videos,
+                loading: true
             }
-        case 'HOME_VIDEOS_ERROR':
+        case 'HISTORY_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                history: action.payload
+            }
+        case 'HISTORY_ERROR':
             return {
                 ...state,
                 loading: false,
                 error: action.payload
             }
-        case 'VIDEO_DETAILS_REQUEST':
+        case 'CLEAR_HISTORY_REQUEST':
             return {
                 ...state,
                 loading: true
             }
-        case 'VIDEO_DETAILS_SUCCESS':
+        case 'CLEAR_HISTORY_SUCCESS':
             return {
                 ...state,
                 loading: false,
-                videoDetails: action.payload
+                history: action.payload
             }
-        case 'VIDEO_DETAILS_ERROR':
+        case 'CLEAR_HISTORY_ERROR':
             return {
                 ...state,
                 loading: false,
@@ -44,4 +43,4 @@ export const videoReducer = (state = initialState,action) => {
         default:
             return state
     }
-}
+ }

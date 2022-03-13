@@ -4,7 +4,7 @@ import numeral from 'numeral';
 import moment from 'moment';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import Submenu from './Submenu/Submenu';
 
 const Video = ({ video }) => {

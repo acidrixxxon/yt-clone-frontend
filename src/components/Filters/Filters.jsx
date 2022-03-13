@@ -42,16 +42,16 @@ const Filters = () => {
 
             <div className={showFilters ? 'searchpage__filters__lists show' : 'searchpage__filters__lists'}>
 
-                    {filters.map(filter => {
+                    {filters.map((filter,index) => {
                         return (
-                            <ul className='searchpage__filters__lists--list'>
+                            <ul className='searchpage__filters__lists--list' key={index}>
                                 <span className="searchpage__filters__lists--type">{filter.title}</span>
 
                                 <div className="divider"></div>
 
-                                {filter.filters.map(item => {
+                                {filter.filters.map((item,index) => {
                                     return (
-                                        <li className={item.active ? 'searchpage__filters__lists--item active' : 'searchpage__filters__lists--item'}>
+                                        <li className={item.active ? 'searchpage__filters__lists--item active' : 'searchpage__filters__lists--item'} key={index}>
                                             {item.by}
                                             {item.active && <AiOutlineClose size={15}/>}
                                         </li>

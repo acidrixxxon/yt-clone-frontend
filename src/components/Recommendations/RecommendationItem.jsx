@@ -1,10 +1,8 @@
 import React from 'react'
 import './_VerticalRecs.scss'
-import { useQuery } from 'react-query'
 import numeral from 'numeral'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import ApiService from '../../utils/ApiService'
 
 const RecommendationItem = ({ item }) => {
 
@@ -20,7 +18,7 @@ const RecommendationItem = ({ item }) => {
                     {item.channel.name}
                 </span>
                 <div className="recommendation__metadata">
-                    <span className='views'>{numeral(item.views).format('0.a')}</span>
+                    <span className='views'>{numeral(item.views).format('0.a')} просмотров</span>
                     <span className="divider">•</span>
                     <span className="date">{moment(item.createdAt).fromNow()}</span>
                 </div>

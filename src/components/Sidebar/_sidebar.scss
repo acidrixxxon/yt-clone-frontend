@@ -6,7 +6,7 @@ nav {
 
     min-height: 100vh;
     z-index: 999;
-    width: 250px;
+    width: 230px;
 
     display: flex;
     flex-direction: column;
@@ -68,26 +68,26 @@ nav {
         color: $text-color;
         padding: 0.6rem 1.5rem;
 
-        button {
-            border: 1px solid rgb(6, 95, 212);
-                background-color: transparent;
-                border-radius: 3px;
-                padding: 6px 12px;
-                display: flex;
-                align-items: center;
-                color: rgb(6, 95, 212);
-                font-size: 14px;
-                font-weight: 500;
-                cursor: pointer;
-                margin-top: 20px;
+        // button {
+        //     border: 1px solid rgb(6, 95, 212);
+        //         background-color: transparent;
+        //         border-radius: 3px;
+        //         padding: 6px 12px;
+        //         display: flex;
+        //         align-items: center;
+        //         color: rgb(6, 95, 212);
+        //         font-size: 14px;
+        //         font-weight: 500;
+        //         cursor: pointer;
+        //         margin-top: 20px;
 
-                svg {
-                    width: 24px;
-                    height: 24px;
-                    fill:rgb(6, 95, 212);
-                    margin-right: 10px;
-                }
-        }
+        //         svg {
+        //             width: 24px;
+        //             height: 24px;
+        //             fill:rgb(6, 95, 212);
+        //             margin-right: 10px;
+        //         }
+        // }
     }
 
     .user-subs {
@@ -142,10 +142,41 @@ nav {
             }
         }
     }
+
+    &.smallsize {
+        width: 72px;
+
+        .divider ,
+        .user-subs,
+        .user-subs__list,
+        p{
+            display: none;
+        }
+
+        .navbar__link {
+            .navbar__item {
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+
+                span {
+                    font-size: 12px;
+                    margin-left: 0;
+                    font-weight: 400;
+                }
+            }
+
+            &.liked,&.watch-later,&.my-videos {
+                display: none;
+            }
+        }
+
+        
+    }
 }
 
 
-@media(max-width: $breakpoint-desktop) {
+@media(max-width: 1220px) {
     nav {
         width: 70px;
 

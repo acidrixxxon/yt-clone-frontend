@@ -8,13 +8,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import Auth from '../Auth/Auth';
 
-const Sidebar = ({ sidebar,handleToggleSidebar }) => {
+const Sidebar = () => {
   const location = useLocation()
 
-  const { user } = useSelector( state => state)
+  const { user,view: { smallSizeSidebar} } = useSelector( state => state)
 
   return <>
-    <nav className="sidebar">
+    <nav className={smallSizeSidebar ? "sidebar smallsize" : "sidebar"}>
       <Link to="/" className="navbar__link">
         <li className={location.pathname === '/' ? 'navbar__item active' : 'navbar__item'} >
           <MdHome 
@@ -45,7 +45,7 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
       <div className="divider"></div>
 
       {user.user && (
-        <Link to="/liked" className="navbar__link">
+        <Link to="/liked" className="navbar__link liked">
           <li className='navbar__item'>
               <MdThumbUp 
                 className='navbar__item-icon'
@@ -66,7 +66,7 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
       </Link>
 
       {user.user && (
-        <Link to="/history" className="navbar__link">
+        <Link to="/history" className="navbar__link my-videos">
           <li className={location.pathname === '/my__channel' ? 'navbar__item active' : 'navbar__item'}>
             <AiOutlineVideoCamera
               className='navbar__item-icon'
@@ -77,8 +77,8 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
       )}
 
       {user.user && (
-        <Link to="/watchlater" className="navbar__link">
-          <li className='navbar__item'>
+        <Link to="/watchlater" className="navbar__link watch-later">
+          <li className={location.pathname === '/watchlater' ? 'navbar__item active' :'navbar__item'}>
             <BiTimeFive
               className='navbar__item-icon'
               size={22} />
@@ -126,7 +126,7 @@ const Sidebar = ({ sidebar,handleToggleSidebar }) => {
         </>
       )}
       
-      <Auth />
+      <Auth responsive={true}/>
     </nav>
   </>;
 };

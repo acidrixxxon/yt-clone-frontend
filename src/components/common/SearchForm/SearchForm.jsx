@@ -6,7 +6,9 @@ const SearchForm = () => {
     const [ query,setQuery ] = React.useState('')
     const navigate = useNavigate()
     
-    const submitHandler = () => {
+    const submitHandler = (e) => {
+        e.preventDefault()
+        if (query.length === 0) return
         navigate(`/search/q=${query}`)
     }
 

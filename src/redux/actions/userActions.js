@@ -1,3 +1,4 @@
+import axios from "axios";
 import UserService from "../../Services/UserService";
 
 export const login = (data) => async dispatch => {
@@ -66,9 +67,62 @@ export const getMe = () => async (dispatch,getState) => {
                     }
                 })
             }
+        } else {
+            dispatch({
+                type: 'LOGIN_FAILED'
+            })
         }
+
+
 
     } catch (e) {
         console.error(e)
+    }
+}
+
+export const getWatchLater = () => async (dispatch,getState) => {
+    try {
+        dispatch({type: 'WATCH_LATER_REQUEST'})
+
+        const { user } = getState()
+
+        const res = await UserService.getWatchLater(user.accessToken)
+
+        if (res.status === 200) {
+            return dispatch({
+                type: 'WATCH_LATER_SUCCESS',
+                payload: res.data.list
+            })
+        }
+    } catch (error) {
+        console.log(error.message);
+        dispatch({
+            type: 'WATCH_LATER_ERROR',
+            payload: error.message
+        })
+    }
+}
+
+export const addWatchLater = (id) => async (dispatch,getState) => {
+    try {
+        const { user } = getState()
+
+        const res = await UserService.addWatchLater(id,user.accessToken)
+
+        if (!res.status === 200) return new Error('Не удалось добавить видео в плейлист')
+    } catch (e) {
+        console.error(e.message)
+    }
+}
+
+export const removeVideoWatchLater = (id) => async (dispatch,getState) => {
+    try {
+        const { user } = getState()
+
+        const res = await UserService.removeWatchLater(id,user.accessToken)
+
+        if (res.status === 200) return dispatch(getWatchLater())
+    } catch (e) {
+        console.error(e.message)
     }
 }

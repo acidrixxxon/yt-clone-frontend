@@ -1,0 +1,39 @@
+@import './../../_base.scss';
+
+.sub-menu {
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    padding: 0 5px;
+
+    .sub-menu--icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .sub-menu__list {
+        position: absolute;
+        right: 10px;
+        top: 25px;
+        display: flex;
+        flex-direction: column;
+        min-width: 350px;
+        padding: 5px 0;
+        background-color: $black-secondary;
+        border-radius: 5px;
+
+        &__item {
+            display: flex;
+            align-items: center;
+            padding: 8px 20px;
+
+            &--icon {
+                margin-right: 10px;
+            }
+
+            &:hover {
+                background-color: $black-primary;
+            }
+        }
+    }
+}

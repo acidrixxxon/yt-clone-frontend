@@ -5,41 +5,38 @@ import numeral from 'numeral'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchVideoDetails } from '../../redux/actions/videoActions';
-import { MdThumbUp,MdThumbDown } from 'react-icons/md'
+import { MdThumbUp,MdThumbDown,MdPlaylistAdd,MdPlaylistAddCheck } from 'react-icons/md'
 import ReactPlayer from 'react-player'
 import Comments from '../../components/Video/Comments/Comments';
 import VerticalRecs from '../../components/Recommendations/VerticalRecs';
 import SubscribeBtn from '../../components/common/Buttons/SubscribeBtn';
 import Wrapper from '../../components/common/Wrapper/Wrapper';
 import UnsubscribeBtn from '../../components/common/Buttons/UnsubscribeBtn';
+import { addWatchLater } from '../../redux/actions/userActions';
+import { addVideoView, subscribeOnChannel, unsubscribeOnChannel } from '../../redux/actions/channelActions';
+import { addToHistory } from '../../redux/actions/historyActions';
 
 const VideoPage = () => {
     const [ showDescription,setShowDescription ] = React.useState(false)
-    const [ subscribed,setSubscribed ] = React.useState(false)
+    const [ saved,setSaved ] = React.useState(false)
 
     const params = useParams()
     const dispatch = useDispatch()
 
     const { video: { videoDetails,loading,error } } = useSelector(state => state)
-    const { user } = useSelector(state => state.user)
-    
+    const { user,accessToken } = useSelector(state => state.user)
+   
     const likes = 4000
 
     React.useEffect(() => {
         dispatch(fetchVideoDetails(params.id))
-        checkForSubscribe()
     },[dispatch,params.id])
 
     const showDescriptionHandler = () => {
         setShowDescription(!showDescription)
     }
 
-    const checkForSubscribe = () => {
-        const isMatch = user?.subscriptions.find( item => item._id === videoDetails?.channel._id)
-        setSubscribed(isMatch)
-    }
-
-    if (loading === true) return (<span>Loading...</span>)
+    if (loading) return (<span>Loading...</span>)
     if (error) return (<span>{error}</span>)
     
   return (
@@ -48,7 +45,9 @@ const VideoPage = () => {
                 <ReactPlayer 
                     className="videoPage__player" 
                     url={videoDetails?.sourceUrl} 
-                    controls={true}/>
+                    controls={true}
+                    onEnded={() => dispatch(addVideoView(videoDetails._id))} 
+                    onStart={() => dispatch(addToHistory(params.id))} />
 
                 <div className="videoPage__content">
                     <div className="videoPage__details">
@@ -63,6 +62,15 @@ const VideoPage = () => {
                             </div>
 
                             <div className="videoPage__right">
+                                {saved 
+                                ? (<button className='videoPage_right__removeWatchLater'>
+                                    <MdPlaylistAddCheck className='videoPage_right__removeWatchLater--icon' />
+                                    Сохранено
+                                </button>) 
+                                : (<button className='videoPage_right__addWatchlater' onClick={() => dispatch(addWatchLater(videoDetails._id))}>
+                                    <MdPlaylistAdd className='videoPage_right__addWatchlater--icon'/>
+                                    Сохранить
+                                </button>)}
                                 <span className="likes">
                                     <MdThumbUp />
                                     {numeral(likes).format('0.a')}
@@ -85,7 +93,10 @@ const VideoPage = () => {
                             </div>
 
                             <div className="videoPage__right">
-                                { subscribed ? <UnsubscribeBtn /> : <SubscribeBtn /> }
+                                { accessToken !== null && user !== null ? videoDetails?.channel.subscribed 
+                                    ? <UnsubscribeBtn /> 
+                                    : <SubscribeBtn /> 
+                                : '' }
                             </div>
                         </div>
 

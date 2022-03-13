@@ -1,9 +1,12 @@
 import React from 'react'
 import './_Wrapper.scss'
+import { useSelector } from 'react-redux'
 
 const Wrapper = ({ children,id }) => {
+  const { view: {smallSizeSidebar }} = useSelector(state => state)
+
   return (
-    <div className='wrapper' id={id}>
+    <div className={smallSizeSidebar ? 'wrapper fullwidth' : 'wrapper'} id={id}>
         {children}
     </div>
   )

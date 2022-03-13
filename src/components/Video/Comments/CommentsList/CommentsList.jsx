@@ -9,8 +9,8 @@ const comments = [{ name: 'Akim',comment: 'Hui tebe loh'},{ name: 'Sasha', comme
   return (
     <div className="comments">
         <ul className="comments__list">
-            {comments.map(comment => {
-                return <Comment comment={comment} />
+            {comments.map((comment,index) => {
+                return <Comment comment={comment} key={index} />
             })}
         </ul>
     </div>

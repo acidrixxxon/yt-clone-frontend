@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom'
 import { AiOutlineClose } from 'react-icons/ai'
 import Modal from '../Modal/Modal'
 
-const Auth = () => {
+
+const Auth = ({ responsive }) => {
     const [ showAuthModal,setShowAuthModal ] = React.useState(false)
     const [ formData,setFormData ] = React.useState({
         email: '',
@@ -18,7 +19,6 @@ const Auth = () => {
 
     const { email,password } = formData
 
-    const responsive = false
     const dispatch = useDispatch()
 
     const user = useAuth()
@@ -47,7 +47,7 @@ const Auth = () => {
                 (<>
                     <hr />
                     <p>Вы сможете ставить отметки "Нравится", писать комментарии и подписываться на каналы.</p>
-                    <SignInBtn onClick={openAuthModal} responsive/>
+                    <SignInBtn onClick={openAuthModal} responsive={responsive} />
                 </>)
             }
 

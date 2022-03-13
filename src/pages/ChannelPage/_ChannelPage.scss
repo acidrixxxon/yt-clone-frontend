@@ -1,11 +1,15 @@
+@import './../../_base.scss';
+
 .container {
     width: 100%;
     max-width: 1070px;
+    padding: 0 20px;
     margin: 0 auto;
 }
 
 #channel-page {
     padding: 0;
+    color: #fff;
 
     .channel-page__bg {
         width: 100%;
@@ -27,6 +31,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    margin-bottom: 20px;
     
                     .channel-page__metadata__left {
                         display: flex;
@@ -48,7 +53,45 @@
                     }
     
                     .channel-page__metadata__right {
-    
+                        position: relative;
+                    }
+                }
+
+                .channel-page__tab-list {
+                    display: flex;
+
+                    .channel-page__tab-list__item {
+                        font-size: 17px;
+                        color: $text-color;
+                        font-weight: 400;
+                        padding: 0 30px;
+                        cursor: pointer;
+                        text-transform: uppercase;
+                        position: relative;
+                        
+                        &::after {
+                            opacity: 0;
+                            content: '';
+                            width: 100%;
+                            height: 3px;
+                            transition: .2s all linear;
+                            transform: translateX(-100%);
+                            display: block;
+                            background-color: #AAAAAA;
+                            border-radius: 10px;
+                            position: absolute;
+                            bottom: -20px;
+                            left: 0;
+                        }
+
+                        &.active {
+                            color: #fff;
+
+                            &::after {
+                                opacity: 1;
+                                transform: translateX(0);
+                            }
+                        }
                     }
                 }
             }
@@ -57,5 +100,137 @@
         .channel-page__body {
             background-color: #0F0F0F;
             min-height: 500px;
+
+            .channel-page__container {
+
+                .channel-page__preview {
+                    padding: 25px 0;
+                    border-bottom: $border-main;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    &--video {
+                        flex-basis: 40%;
+                        height: 230px !important;
+                        margin-right: 15px;
+                    }
+
+                    .channel-page__video-data {
+                        flex-basis: 40%;
+
+                        .channel-page__video-data--title {
+                            font-size: 15px;
+                            font-family: "Roboto", "Arial", sans-serif;
+                            font-weight: 600;
+                            margin-bottom: 20px;
+                        }
+
+                        .channel-page__video-data__metadata {
+                            color: $text-color;
+                            font-size: 13px;
+                            margin-bottom: 20px;
+
+                            &--divider {
+                                margin: 0 5px;
+                            }
+                        }
+
+                        .channel-page__video-data__description {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                .channel-page__content {
+                    padding: 25px 0;
+                    border-bottom: $border-main;
+
+                    &--title {
+                        font-size: 19px;
+                        font-weight: 600;
+                        margin-bottom: 25px;
+                    }
+
+                    .channel-page__content__video-list {
+                        display: flex;
+
+                        .channel-page__content__video-list__item {
+                            flex-basis: 20%;
+                            margin-right: 5px;
+
+                            &:last-child {margin-right: 0;}
+                            &--img {
+                                width: 100%;
+                                height: 120px;
+                                margin-bottom: 10px;
+                            }
+
+                            &--title {
+                                font-size: 15px;
+                                font-weight: 600;
+                                margin-bottom: 10px;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                                padding-right: 10px;
+                            }
+
+                            &__metadata {
+                                color: $text-color;
+                                font-size: 12px;
+
+                                &--divider {
+                                    margin: 0 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .channel-page__videos {
+                    padding-top: 25px;
+
+                    .channel-page__videos__headline {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: 25px;
+                    }
+
+                    .channel-page__videos-list {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        .videos-small__item {
+                            margin-bottom: 25px;
+                        }
+                    }
+                }
+            }
         }
     }
+
+
+
+@media (max-width: $breakpoint-desktop) {
+    .container {
+        max-width: 1100px;
+    }
+}
+
+@media (max-width: 1220px) {
+    .container {
+        max-width: 950px;
+    }
+}
+
+
+@media (max-width: 850px) {
+    .container {
+        max-width: 680px;
+    }
+
+    .channel-page__preview--video {
+        flex-basis: 50% !important;
+    }
+}

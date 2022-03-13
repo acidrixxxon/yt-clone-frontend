@@ -12,6 +12,7 @@ import Searchpage from './pages/Search/Searchpage';
 import { useDispatch } from 'react-redux'
 import { getMe } from './redux/actions/userActions';
 import ChannelPage from './pages/ChannelPage/ChannelPage';
+import Watchlater from './pages/Watchlater/Watchlater';
 
 function App() {
   const [ sidebar,setSidebar ] = React.useState(true)
@@ -41,6 +42,7 @@ function App() {
             <Route path="/library" element={<Librarypage />} />
             <Route path="/search/q=:query" element={<Searchpage />} />
             <Route path="/channel/:id" element={<ChannelPage />} /> 
+            <Route path="/watchlater" element={<Watchlater />} />
           </Routes>
       </div>
     </div>

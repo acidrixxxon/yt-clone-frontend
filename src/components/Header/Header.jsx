@@ -1,19 +1,20 @@
 import React from 'react';
 import './_Header.scss'
 import { GiHamburgerMenu } from 'react-icons/gi'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import SignInBtn from '../common/SignInBtn';
 import SearchForm from '../common/SearchForm/SearchForm';
 import AddVideo from '../AddVideo/AddVideo';
 
-const Header = ({ handleToggleSidebar }) => {
+const Header = () => {
    const { user } = useSelector(state => state)
+   const dispatch = useDispatch()
 
   return (
     <div className='header'>
         <div className="logotype">
-            <button className="logotype__burger" onClick={() => handleToggleSidebar()}>
+            <button className="logotype__burger" onClick={() => dispatch({type: 'TOGGLE_SIDEBAR'})}>
                 <GiHamburgerMenu 
                     className='logotype__burger-icon'
                     size={22} />

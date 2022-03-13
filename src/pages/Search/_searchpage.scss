@@ -36,7 +36,7 @@
                     .searchpage__results__channels__list__item__metadata {
                         color: $text-color;
                         font-size: 13px;
-                        margin-right: 20px;
+                        margin-right: 25vw;
 
                         .searchpage__results__channels__list__item__metadata--channelname {
                             margin-bottom: 15px;
@@ -68,17 +68,19 @@
                     display: flex;
                     justify-content: flex-start;
                     position: relative;
+                    margin-bottom: 25px;
 
                     &:hover {
-                        .submenu {
+                        cursor: pointer;
+                        #submenu-searchpage {
 
                             .submenu__dots {
-                                display: flex;
+                                opacity: 1;
                             }
                         }
                     }
 
-                    .submenu {
+                    #submenu-searchpage {
                         position: absolute;
                         right: 10px;
                         top: 0;
@@ -87,9 +89,12 @@
                         align-items: flex-end;
 
                         .submenu__dots {
-                            display: none;
+                            display: flex;
+                            opacity: 0;
                             flex-direction: column;
                             cursor: pointer;
+                            padding: 0 10px;
+                            transition: .1s all linear;
 
                             &.active {
                                 display: flex;
@@ -105,13 +110,14 @@
                         }
 
                         .submenu__list {
+                            position:relative;
                             display: flex;
                             flex-direction: column;
                            min-width: 220px;
                            background-color: $black-primary;
                            position: relative;
                            right: 0;
-                           opacity: 0;
+                           top: 10px;
 
                            &.active {
                                opacity: 1;
@@ -150,9 +156,12 @@
                         height: 200px;
                         margin-right: 20px;
 
-                        img {
-                            width: 100%;height: 100%;object-fit: cover;
+                        a {
+                           img {
+                            width: 350px;height: 200px;object-fit: cover;
+                        } 
                         }
+                        
                     }
 
                     .searchpage__results__videos__list__item__metadata {
@@ -162,9 +171,11 @@
                         font-size: 13px;
 
                         .searchpage__results__videos__list__item__metadata--title {
-                            margin: 10px 0 0;
-                            color: #fff;
-                            font-size: 20px;
+                            margin: 5px 0 2px;
+                            a {
+                                color: #fff;
+                                font-size: 20px;
+                            }
                         }
 
                         .searchpage__results__videos__list__item__metadata--stats {
@@ -175,15 +186,17 @@
                         }
 
                         .searchpage__results__videos__list__item__metadata--author {
-                            padding: 15px 0;
-                            display: flex;
-                            align-items: center;
-
-                            img {
-                                width: 24px;
-                                height: 24px;
-                                margin-right: 10px;
-                                border-radius: 50%;
+                            a {
+                                padding: 15px 0;
+                                display: flex;
+                                align-items: center;
+    
+                                img {
+                                    width: 24px;
+                                    height: 24px;
+                                    margin-right: 10px;
+                                    border-radius: 50%;
+                                }
                             }
                         }
                     }

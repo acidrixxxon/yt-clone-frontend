@@ -4,13 +4,17 @@ import { AiOutlineFieldTime } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import VideoItem from '../../components/LibraryVideoItem/VideoItem'
 import { useSelector } from 'react-redux'
+import Wrapper from '../../components/common/Wrapper/Wrapper'
 
 const Librarypage = () => {
-    const { user } = useSelector(state => state)
-
+    const { user: { user } } = useSelector(state => state)
     console.log(user)
+
+    const login = ''
+    const avatar = ''
   return (
-    <div className='library'>
+      <Wrapper>
+              <div className='library'>
             <div className="library__container">
                 <section className="history">
                     <div className="history__top top">
@@ -47,10 +51,10 @@ const Librarypage = () => {
             </div>
 
             <div className="library__user">
-                <img src={user.user.photoURL} alt="user avatar" className="library__user--avatar" />
+                <img src={avatar} alt="user avatar" className="library__user--avatar" />
 
                 <h3 className="library__user--username">
-                    {user.user.displayName}
+                    {login}
                 </h3>
 
                 <div className="divider"></div>
@@ -77,6 +81,7 @@ const Librarypage = () => {
                 <div className="divider"></div>
             </div>
     </div>
+      </Wrapper>
   )
 }
 
